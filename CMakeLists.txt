@@ -25,21 +25,21 @@ add_library (${MODULE_NAME} SHARED)
 
 target_sources (${MODULE_NAME}
 PRIVATE
-	"source/renderer.cpp"
-	"source/startup.cpp"
-	"source/shutdown.cpp"
-	"source/swapchain.cpp"
-	"source/frame.cpp"
-	"source/app-create.cpp"
-	"source/app-destroy.cpp"
-	"source/window.cpp"
-	"source/util.cpp"
-	"source/geometry.cpp"
-	"source/material.cpp"
-	"source/camera.cpp"
-	"source/render_component.cpp"
+	"private/renderer.cpp"
+	"private/startup.cpp"
+	"private/shutdown.cpp"
+	"private/swapchain.cpp"
+	"private/frame.cpp"
+	"private/app-create.cpp"
+	"private/app-destroy.cpp"
+	"private/window.cpp"
+	"private/util.cpp"
+	"private/geometry.cpp"
+	"private/material.cpp"
+	"private/camera.cpp"
+	"private/render_component.cpp"
 
-	"source/volk/volk.c"
+	"private/volk/volk.c"
 )
 
 target_link_libraries (${MODULE_NAME}
@@ -49,7 +49,7 @@ PRIVATE
 
 target_include_directories (${MODULE_NAME}
 PUBLIC
-	"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+	"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/public>"
 	"$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 PRIVATE
 	"$<BUILD_INTERFACE:${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}>"
@@ -61,7 +61,7 @@ PROPERTIES
 	CXX_EXTENSIONS OFF
 	PREFIX ""
 	SUFFIX ".mod"
-	PUBLIC_HEADER "include/renderer.h"
+	PUBLIC_HEADER "public/renderer.h"
 )
 
 # Compile shaders

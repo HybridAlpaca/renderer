@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-extern kernel_api * kernel;
+extern kernel_i * kernel;
 
 static std::vector<char> ReadFile(const char * filename)
 {

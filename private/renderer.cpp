@@ -19,7 +19,7 @@ component_i render_component
 	render_component_get_interface
 };
 
-renderer_api renderer
+render_i renderer
 {
 	vk_geometry_create,
 	vk_geometry_destroy,
@@ -33,13 +33,13 @@ renderer_api renderer
 	[](){ return &render_component; }
 };
 
-kernel_api * kernel;
+kernel_i * kernel;
 
-bool start(kernel_api * api)
+bool start(kernel_i * api)
 {
 	kernel = api;
 
-	kernel->api_impl_add(RENDERER_API_NAME, &renderer);
+	kernel->api_impl_add(RENDER_INTERFACE_NAME, &renderer);
 	kernel->api_impl_add(COMPONENT_INTERFACE_NAME, &render_component);
 
 	vk_window_create();
@@ -87,9 +87,9 @@ bool update()
 	return true;
 }
 
-const char * exports[]{ "renderer" };
+const char * exports[]{ RENDER_INTERFACE_NAME };
 
-extern "C" module_t module
+extern "C" const module_desc_t module
 {
 	"renderer",
 

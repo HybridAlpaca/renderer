@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-static const char * RENDERER_API_NAME = "renderer";
+static const char * RENDER_INTERFACE_NAME = "renderer";
 static const char * RENDER_COMPONENT_INTERFACE_NAME = "render_component_i";
 
 struct geometry_o;
@@ -16,7 +16,7 @@ struct vertex_t
 	float uv[2];
 };
 
-struct renderer_api
+struct render_i
 {
 	geometry_o * (*geometry_create)(uint32_t vertex_count, vertex_t * vertices, uint32_t index_count, const uint32_t * indices);
 

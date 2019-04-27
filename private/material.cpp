@@ -16,7 +16,7 @@
 #include <cstring>
 #include <iostream>
 
-extern kernel_api * kernel;
+extern kernel_i * kernel;
 
 material_o * vk_material_create(void * pixel_data, uint32_t tex_width, uint32_t tex_height)
 {
